@@ -1,0 +1,17 @@
+---
+# defaults file for ansible-role-docker_handbrake
+
+handbrake_name: handbrake
+handbrake_image: jlesage/handbrake
+handbrake_timezone: Etc/UTC
+handbrake_display_width: "1280"
+handbrake_display_height: "768"
+handbrake_published_ports:
+  - "5800:5800"
+handbrake_network: handbrake
+handbrake_iprange: 10.1.1.0/24
+handbrake_volumes:
+  - "/docker/appdata/handbrake:/config:rw"
+  - "{{ lookup('env','HOME') }}:/storage:ro"
+  - "{{ lookup('env','HOME') }}/HandBrake/watch:/watch:rw"
+  - "{{ lookup('env','HOME') }}/HandBrake/output:/output:rw"
