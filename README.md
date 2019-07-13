@@ -6,8 +6,8 @@ An Ansible role to deploy handbrake application as [container](https://github.co
 
 used modules:
   - [docker_container](https://docs.ansible.com/ansible/latest/modules/docker_container_module.html)
-  - [docker_network](https://docs.ansible.com/ansible/latest/modules/docker_network_module.html)
   - [docker_image](https://docs.ansible.com/ansible/latest/modules/docker_image_module.html)
+  - [docker_network](https://docs.ansible.com/ansible/latest/modules/docker_network_module.html)
 
 Fedora RPM packages:
   - python3-docker
