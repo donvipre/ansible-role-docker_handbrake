@@ -1,6 +1,6 @@
 # Ansible Role: docker_handbrake
 
-An Ansible role to deploy handbrake application as container.
+An Ansible role to deploy handbrake application as [container](https://github.com/jlesage/docker-handbrake). Thanks to Jocelyn Le Sage for this!
 
 ## Requirements
 
