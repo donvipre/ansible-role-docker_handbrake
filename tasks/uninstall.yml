@@ -1,0 +1,7 @@
+---
+# uninstall.yml tasks file for ansible-role-docker_handbrake
+
+- name: Remove HandBrake container
+  docker_container:
+    name: "{{ handbrake_name }}"
+    state: absent

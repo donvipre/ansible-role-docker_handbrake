@@ -1,40 +1,14 @@
 ---
-# tasks file for ansible-role-docker_handbrake
+# main.yml tasks file for ansible-role-docker_handbrake
 
-- name: Pull handbrake image
-  docker_image:
-    name: "{{ handbrake_image }}"
-    source: pull
+- name: Fail if task is unsupported
+  fail:
+    msg: "unsupported task {{ item }}"
+  when: item not in handbrake_supported_tasks
+  with_items:
+    - "{{ run_tasks }}"
 
-- name: Create network for Handbrake
-  docker_network:
-    name: "{{ handbrake_network }}"
-    internal: yes
-    ipam_config:
-      - subnet: "{{ handbrake_iprange }}"
-
-- name: Start Handbrake
-  docker_container:
-    name: "{{ handbrake_name }}"
-    image: "{{ handbrake_image }}"
-    state: started
-    volumes: "{{ handbrake_volumes }}"
-    published_ports: "{{ handbrake_published_ports }}"
-    env:
-      TZ: "{{ handbrake_timezone }}"
-      DISPLAY_WIDTH: "{{ handbrake_display_width }}"
-      DISPLAY_HEIGHT: "{{ handbrake_display_height }}"
-
-- name: Add Handbrake container to makemkv network
-  docker_network:
-    name: "{{ handbrake_network }}"
-    connected:
-      - "{{ handbrake_name }}"
-    appends: yes
-
-- name: Remove Handbrake container from bridge network
-  docker_container:
-    name: "{{ handbrake_name }}"
-    networks:
-      - name: "{{ handbrake_network }}"
-    purge_networks: yes
+- name: Include tasks
+  include_tasks: "tasks/{{ item }}.yml"
+  with_items:
+    - "{{ run_tasks }}"
