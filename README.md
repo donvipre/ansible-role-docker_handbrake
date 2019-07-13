@@ -8,6 +8,7 @@ used modules:
   - [docker_container](https://docs.ansible.com/ansible/latest/modules/docker_container_module.html)
   - [docker_image](https://docs.ansible.com/ansible/latest/modules/docker_image_module.html)
   - [docker_network](https://docs.ansible.com/ansible/latest/modules/docker_network_module.html)
+  - [fail](https://docs.ansible.com/ansible/latest/modules/fail_module.html)
 
 Fedora RPM packages:
   - python3-docker
@@ -39,6 +40,10 @@ handbrake_volumes:
   - "{{ lookup('env','HOME') }}:/storage:ro"
   - "{{ lookup('env','HOME') }}/HandBrake/watch:/watch:rw"
   - "{{ lookup('env','HOME') }}/HandBrake/output:/output:rw"
+
+handbrake_supported_tasks:
+  - install
+  - uninstall
 ```
 
 ## Dependencies
@@ -50,7 +55,7 @@ None.
 ```
 - hosts: servers
   roles:
-    - ansible-role-docker_handbrake
+    - { role: ansible-role-docker_handbrake, run_tasks: install }
 ```
 
 ## License
