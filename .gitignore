@@ -1,0 +1,11 @@
+# name: .gitignore
+# description: This file facilitates gitignore.
+# author: Uwe Arnold
+# contact: donvipre@gmail.com
+# license: BSD-3-Clause
+# reference: https://git-scm.com/docs/gitignore
+
+# temporary files
+*.swp
+*.swo
+*~
