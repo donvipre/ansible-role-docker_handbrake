@@ -25,7 +25,7 @@
       DISPLAY_WIDTH: "{{ handbrake_display_width }}"
       DISPLAY_HEIGHT: "{{ handbrake_display_height }}"
 
-- name: Add Handbrake container to makemkv network
+- name: Add Handbrake container to network
   docker_network:
     name: "{{ handbrake_network }}"
     connected:
