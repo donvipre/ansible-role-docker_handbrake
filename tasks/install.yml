@@ -19,6 +19,7 @@
     image: "{{ handbrake_image }}"
     state: started
     volumes: "{{ handbrake_volumes }}"
+    devices: "{{ handbrake_devices }}"
     published_ports: "{{ handbrake_published_ports }}"
     env:
       TZ: "{{ handbrake_timezone }}"

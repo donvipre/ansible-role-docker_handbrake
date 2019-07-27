@@ -15,6 +15,7 @@ handbrake_volumes:
   - "{{ lookup('env','HOME') }}:/storage:ro"
   - "{{ lookup('env','HOME') }}/HandBrake/watch:/watch:rw"
   - "{{ lookup('env','HOME') }}/HandBrake/output:/output:rw"
+handbrake_devices: []
 
 handbrake_supported_tasks:
   - install
